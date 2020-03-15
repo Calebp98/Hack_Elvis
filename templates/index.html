@@ -8,50 +8,78 @@
   <link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
   <link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
   <link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
-  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/skeleton.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/normalize.css') }}">
+
 
 </head>
 
-<body style="background: #000;">
-  <div class="login">
-    <h1>Talk it Out</h1>
+<body>
+  <div class="container">
+    <div class="login">
+      <h1>Talk it Out</h1>
 
-    <!-- Main Input For Receiving Query to our ML -->
-    <form action="{{ url_for('predict')}}" method="post">
-      <input type="text" name="rate" placeholder="rate" required="required" />
+      <!-- Main Input For Receiving Query to our ML -->
+      <form action="{{ url_for('predict')}}" method="post">
+        <!-- <input type="text" name="rate" placeholder="rate" required="required" />
       <input type="text" name="sales in first month" placeholder="sales in first month" required="required" />
-      <input type="text" name="sales in second month" placeholder="sales in second month" required="required" />
-      <button type="submit" class="btn btn-primary btn-block btn-large">Predict</button>
-    </form>
+      <input type="text" name="sales in second month" placeholder="sales in second month" required="required" /> -->
+        <button type="submit" class="btn btn-primary btn-block btn-large">Predict</button>
+      </form>
 
-    <br>
-    <br>
-    {{ prediction_text }}
+      <!-- {{ prediction_text }}
+      <div class="container">
+        <div class="row">
+          <p>Female Angry : {{fAngry}}</p>
+          <p>Calm : {{fCalm}}</p>
+          <p>Fearful : {{fFearful}}</p>
+          <p>Happy : {{fHappy}}</p>
+          <p>Sad : {{fSad}}</p>
+          <p>Male Angry : {{mAngry}}</p>
+          <p>Calm : {{mCalm}}</p>
+          <p>Fearful : {{mFearful}}</p>
+          <p>Happy : {{mHappy}}</p>
+          <p>Sad : {{mSad}}</p>
+        </div> -->
+    </div>
 
-    <h2>Select a file to upload</h2>
-    <p>
-      {% with messages = get_flashed_messages() %}
-      {% if messages %}
-      <ul class=flashes>
-        {% for message in messages %}
-        <li>{{ message }}</li>
-        {% endfor %}
-      </ul>
-      {% endif %}
-      {% endwith %}
-    </p>
-    <form method="post" action="/" enctype="multipart/form-data">
-      <dl>
-        <p>
-          <input type="file" name="file" autocomplete="off" required>
-        </p>
-      </dl>
+    <h3>Select a file to upload</h2>
       <p>
-        <input type="submit" value="Submit">
+        {% with messages = get_flashed_messages() %}
+        {% if messages %}
+        <ul class=flashes>
+          {% for message in messages %}
+          <li>{{ message }}</li>
+          {% endfor %}
+        </ul>
+        {% endif %}
+        {% endwith %}
       </p>
-    </form>
+      <form method="post" action="/" enctype="multipart/form-data">
+        <dl>
+          <p>
+            <input type="file" name="file" autocomplete="off" required>
+          </p>
+        </dl>
+        <p>
+          <input type="submit" value="Submit">
+        </p>
+      </form>
+
+      <title>Python Flask File Download Example</title>
+      <h2>Download a file</h2>
 
 
+
+      <form action="{{ url_for('.download_file') }}" method="post">
+        <!-- <input type="text" name="rate" placeholder="rate" required="required" />
+        <input type="text" name="sales in first month" placeholder="sales in first month" required="required" />
+        <input type="text" name="sales in second month" placeholder="sales in second month" required="required" /> -->
+        <button type="submit" class="btn btn-primary btn-block btn-large">Download</button>
+      </form>
+
+
+  </div>
   </div>
 </body>
 
