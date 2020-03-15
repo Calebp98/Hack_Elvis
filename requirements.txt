@@ -1,0 +1,13 @@
+os
+numpy
+flask
+pickle
+werkzeug
+pandas
+librosa
+glob
+numpy
+keras==2.2.5
+pydub            #Enables the basics
+tensorflow==1.14.0
+shutil
