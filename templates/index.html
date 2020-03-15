@@ -43,40 +43,40 @@
         </div> -->
     </div>
 
-    <h3>Select a file to upload</h2>
-      <p>
-        {% with messages = get_flashed_messages() %}
-        {% if messages %}
-        <ul class=flashes>
-          {% for message in messages %}
-          <li>{{ message }}</li>
-          {% endfor %}
-        </ul>
-        {% endif %}
-        {% endwith %}
-      </p>
-      <form method="post" action="/" enctype="multipart/form-data">
-        <dl>
-          <p>
-            <input type="file" name="file" autocomplete="off" required>
-          </p>
-        </dl>
+    <h2>Select a file to upload</h2>
+    <p>
+      {% with messages = get_flashed_messages() %}
+      {% if messages %}
+      <ul class=flashes>
+        {% for message in messages %}
+        <li>{{ message }}</li>
+        {% endfor %}
+      </ul>
+      {% endif %}
+      {% endwith %}
+    </p>
+    <form method="post" action="/" enctype="multipart/form-data">
+      <dl>
         <p>
-          <input type="submit" value="Submit">
+          <input type="file" name="file" autocomplete="off" required>
         </p>
-      </form>
+      </dl>
+      <p>
+        <input type="submit" value="Submit">
+      </p>
+    </form>
 
-      <title>Python Flask File Download Example</title>
-      <h2>Download a file</h2>
+    <!-- <title>Python Flask File Download Example</title> -->
+    <h2>Get Some Insight</h2>
 
 
 
-      <form action="{{ url_for('.download_file') }}" method="post">
-        <!-- <input type="text" name="rate" placeholder="rate" required="required" />
+    <form action="{{ url_for('.download_file') }}" method="post">
+      <!-- <input type="text" name="rate" placeholder="rate" required="required" />
         <input type="text" name="sales in first month" placeholder="sales in first month" required="required" />
         <input type="text" name="sales in second month" placeholder="sales in second month" required="required" /> -->
-        <button type="submit" class="btn btn-primary btn-block btn-large">Download</button>
-      </form>
+      <button type="submit" class="btn btn-primary btn-block btn-large">Download</button>
+    </form>
 
 
   </div>

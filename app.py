@@ -59,52 +59,52 @@ def predictEmotion(path):
 		return livepreds
 
 def analysis(data):
-    timestamps = []
-    total = [0,0,0,0,0,0,0,0,0,0]
-    for frame in data:
-        n = 0
-        for point in frame:
-            # print(n)
-            total[n] += float(point)
-            n +=1
-    maximum=0
-    index = 0
-    for i,value in enumerate(total):
-        if value>maximum:
-            maximum=value
-            index=i
-    highflag = 0
-    N = 0
-    for frame in data:
-        normal = True
-        for i,point in enumerate(frame):
-            if i != index:
-                if point > frame[index]:
-                    normal = False
-                    if highflag <1:
-                        highflag = 6
-                        timestamps.append(N+1)
-        if normal:
-            highflag -= 1
-        N +=1
+	timestamps = []
+	total = [0,0,0,0,0,0,0,0,0,0]
+	for frame in data:
+		n = 0
+		for point in frame:
+			# print(n)
+			total[n] += float(point)
+			n +=1
+	maximum=0
+	index = 0
+	for i,value in enumerate(total):
+		if value>maximum:
+			maximum=value
+			index=i
+	highflag = 0
+	N = 0
+	for frame in data:
+		normal = True
+		for i,point in enumerate(frame):
+			if i != index:
+				if point > frame[index]:
+					normal = False
+					if highflag <1:
+						highflag = 6
+						timestamps.append(N+1)
+		if normal:
+			highflag -= 1
+		N +=1
 
-    return (timestamps)
+	return (timestamps)
 
 
 def output(timestamps):
-    pathout = "output/"
-    blurpath = "blurs/"
-    files = os.listdir(blurpath)
-    for stamp in timestamps:
-        # print (stamp)
-        if stamp > (len(files) - 5):
-            stamp -= 2
-        if stamp > 2:
-            stamp -= 2
-        elif stamp == 2:
-            stamp -= 1
-        # print(files[(stamp - 1)])
-        shutil.copy(blurpath + files[(stamp - 1)],pathout)
+	pathout = "output/"
+	blurpath = "blurs/"
+	files = os.listdir(blurpath)
+	for stamp in timestamps:
+		# print (stamp)
+		if stamp > (len(files) - 5):
+			stamp -= 2
+		if stamp > 2:
+			stamp -= 2
+		elif stamp == 2:
+			stamp -= 1
+		# print(files[(stamp - 1)])
+		shutil.copy(blurpath + files[(stamp - 1)],pathout)
 
 
 def slicer(path):
@@ -136,8 +136,11 @@ def slicer(path):
 def home():
 	cuts = 'cuts/'
 	for f in os.listdir(cuts):
-		if os.path.exists(f):
-  			os.remove(f)
+		if os.path.exists(cuts + f):
+  			# os.remove(f)
+			x = 0
+			# print('exists2')
+		# print('exists1')
 	blurs = 'blurs/'
 	for f in os.listdir(blurs):
 		if os.path.exists(f):
