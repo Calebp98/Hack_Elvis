@@ -9,5 +9,5 @@ glob
 numpy
 keras==2.2.5
 pydub            #Enables the basics
-tensorflow==1.14.0
+tensorflow==2.5.0
 shutil
